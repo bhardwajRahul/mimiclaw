@@ -87,11 +87,17 @@ Edit `main/mimi_secrets.h`:
 Then build and flash:
 
 ```bash
-idf.py build
-idf.py -p /dev/ttyACM0 flash monitor
-```
+# Clean build (required after any mimi_secrets.h change)
+idf.py fullclean && idf.py build
 
-> **Important:** After editing `mimi_secrets.h`, you must do a full rebuild: `idf.py fullclean && idf.py build`
+# Find your serial port
+ls /dev/cu.usb*          # macOS
+ls /dev/ttyACM*          # Linux
+
+# Flash and monitor (replace PORT with your port)
+# USB adapter: likely /dev/cu.usbmodem11401 (macOS) or /dev/ttyACM0 (Linux)
+idf.py -p PORT flash monitor
+```
 
 ### CLI Commands
 

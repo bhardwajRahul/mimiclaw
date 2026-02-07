@@ -87,11 +87,17 @@ cp main/mimi_secrets.h.example main/mimi_secrets.h
 然后编译烧录：
 
 ```bash
-idf.py build
-idf.py -p /dev/ttyACM0 flash monitor
-```
+# 完整编译（修改 mimi_secrets.h 后必须 fullclean）
+idf.py fullclean && idf.py build
 
-> **重要**：修改 `mimi_secrets.h` 后必须完整重编译：`idf.py fullclean && idf.py build`
+# 查找串口
+ls /dev/cu.usb*          # macOS
+ls /dev/ttyACM*          # Linux
+
+# 烧录并监控（将 PORT 替换为你的串口）
+# USB 转接器：大概率是 /dev/cu.usbmodem11401（macOS）或 /dev/ttyACM0（Linux）
+idf.py -p PORT flash monitor
+```
 
 ### 代理配置（国内用户）
 

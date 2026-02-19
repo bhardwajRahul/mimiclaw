@@ -11,7 +11,7 @@ We accept contributions in these areas:
 - Build and tooling improvements
 - Tests and CI enhancements
 
-> **外设**
+> **External Peripherals**
 > We are not accepting PRs that add or change external peripherals right now.
 
 ## Before You Start
